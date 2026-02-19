@@ -1,0 +1,130 @@
+================================================================================
+  EMS DEPLOY – STEP BY STEP (you have GitHub + Render accounts)
+================================================================================
+
+Do the steps in order. Do not skip a step.
+
+================================================================================
+PART 1 – PUT YOUR PROJECT ON GITHUB
+================================================================================
+
+Step 1.1  Create the "light" folder (no node_modules)
+-----------
+• Open File Explorer.
+• Go to this folder:  C:\Users\farha\ems
+• Find the file:  prepare-for-github-upload.ps1
+• RIGHT-CLICK on it → click "Run with PowerShell".
+• If Windows asks "Do you want to allow this app to make changes?" → click Yes.
+• A folder named "ems-for-github" will open. Leave it open (you need it in Step 1.4).
+
+Step 1.2  Create a new repository on GitHub
+-----------
+• Open your browser and go to:  https://github.com
+• Log in if needed.
+• Click the green "New" button (or the "+" at the top right → "New repository").
+• Under "Repository name" type:  ems
+• Leave "Public" selected.
+• Do NOT check "Add a README" or any other option.
+• Click the green "Create repository" button.
+
+Step 1.3  Go to the upload page
+-----------
+• You will see a page that says "Quick setup" and "…or push an existing repository from the command line".
+• On that same page, look for the link that says "uploading an existing file" and CLICK it.
+
+Step 1.4  Upload the contents of ems-for-github
+-----------
+• You should now see a big area that says "Drag files here to upload" or "choose your files".
+• Open the folder "ems-for-github" (it should be at: C:\Users\farha\ems\ems-for-github).
+• Press Ctrl+A to select everything inside that folder (all files and folders).
+• Drag the selected items into the GitHub upload area (the big box on the webpage).
+• Wait until all files show as uploaded (this can take 1–2 minutes).
+• Scroll down the page.
+• In the box "Add a commit message" type:  First upload
+• Click the green "Commit changes" button.
+
+Done with Part 1. Your code is now on GitHub. Remember your repo URL; it looks like:
+https://github.com/YOUR_USERNAME/ems
+
+================================================================================
+PART 2 – DEPLOY ON RENDER
+================================================================================
+
+Step 2.1  Start a new Blueprint
+-----------
+• Go to:  https://render.com
+• Log in.
+• Click "New +" at the top right.
+• Click "Blueprint".
+
+Step 2.2  Connect your GitHub repository
+-----------
+• If Render says "Connect a repository" or "Connect account", click to connect your GitHub account (if not already connected).
+• Under "Connect a repository", find and select:  YOUR_USERNAME/ems  (your ems repo).
+• Click "Connect" or "Connect repository" next to it.
+
+Step 2.3  Apply the Blueprint
+-----------
+• Render will read the repo and show one service named "ems".
+• Click the blue "Apply" button at the bottom (or "Apply" on the service card).
+• Wait for the first deploy. It may take 3–5 minutes. It might show "Failed" the first time — that is OK. We fix it in Part 3.
+
+Step 2.4  Copy your service URL (you will need it later)
+-----------
+• Click on the service name "ems" to open it.
+• At the top you will see a URL like:  https://ems-xxxx.onrender.com
+• Copy that URL and keep it somewhere (Notepad is fine). You will paste it in Step 3.3.
+
+================================================================================
+PART 3 – ADD ENVIRONMENT VARIABLES (fix the app)
+================================================================================
+
+Step 3.1  Open Environment settings
+-----------
+• You should still be on your "ems" service page on Render.
+• In the left sidebar, click "Environment".
+
+Step 3.2  Add MONGODB_URI
+-----------
+• Click "Add Environment Variable" or "Add Variable".
+• Key (name):   MONGODB_URI
+• Value:        Paste your MongoDB Atlas connection string here.
+                You got this when you set up Atlas. It looks like:
+                mongodb+srv://user:password@cluster0.xxxxx.mongodb.net/ems?retryWrites=true&w=majority
+• Click "Add" or "Save" if there is a button.
+
+Step 3.3  Add JWT_SECRET
+-----------
+• Click "Add Environment Variable" again.
+• Key:   JWT_SECRET
+• Value: 9dbdffff51efa10aa449ae3429beeb96b5aa3c7b8cae4db26486821759ef58ae
+• Click "Add" or "Save".
+
+Step 3.4  Add CLIENT_URL
+-----------
+• Click "Add Environment Variable" again.
+• Key:   CLIENT_URL
+• Value: Paste the URL you copied in Step 2.4 (e.g. https://ems-xxxx.onrender.com)
+         No slash at the end.
+• Click "Add" or "Save".
+
+Step 3.5  Save and redeploy
+-----------
+• Click "Save Changes" (if you see it).
+• Render will automatically redeploy. Wait 2–4 minutes until the status shows "Live" or a green check.
+
+================================================================================
+PART 4 – OPEN YOUR APP
+================================================================================
+
+• Open the URL from Step 2.4 in your browser (e.g. https://ems-xxxx.onrender.com).
+• You should see the EMS login page.
+• Log in with:
+  Email:    rasel@maam.sa
+  Password: Farhan784
+
+If the page does not load, wait 1 minute (free tier can be slow) and try again.
+
+================================================================================
+  DONE. Your app is now on the internet.
+================================================================================

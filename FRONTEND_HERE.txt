@@ -1,0 +1,10 @@
+FRONTEND CODE IS IN THIS FOLDER:
+
+  client
+
+Open the "client" folder to see:
+  - src\          (all frontend code)
+  - index.html
+  - package.json
+
+Full path: C:\Users\farha\ems\client

@@ -1,0 +1,61 @@
+========================================
+  WHERE ARE THE BACKEND & FRONTEND FILES?
+========================================
+
+You are here:  C:\Users\farha\ems
+
+----------------------------------------
+  BACKEND (server / API)
+----------------------------------------
+
+  Folder (copy this into File Explorer address bar):
+    C:\Users\farha\ems\server
+
+  Main code folder:
+    C:\Users\farha\ems\server\src
+
+  Important files:
+    C:\Users\farha\ems\server\src\index.js          (starts the backend)
+    C:\Users\farha\ems\server\src\config\db.js      (database)
+    C:\Users\farha\ems\server\src\models\           (User, Employee, etc.)
+    C:\Users\farha\ems\server\src\controllers\      (API logic)
+    C:\Users\farha\ems\server\src\routes\           (API routes)
+
+----------------------------------------
+  FRONTEND (React / website UI)
+----------------------------------------
+
+  Folder (copy this into File Explorer address bar):
+    C:\Users\farha\ems\client
+
+  Main code folder:
+    C:\Users\farha\ems\client\src
+
+  Important files:
+    C:\Users\farha\ems\client\src\main.jsx          (starts the frontend)
+    C:\Users\farha\ems\client\src\App.jsx           (main app & routes)
+    C:\Users\farha\ems\client\src\pages\            (Login, Dashboard, Admin...)
+    C:\Users\farha\ems\client\src\components\      (Layout, SearchBar...)
+
+----------------------------------------
+  HOW TO OPEN IN FILE EXPLORER
+----------------------------------------
+
+  1. Press Windows + E to open File Explorer.
+  2. Click the address bar at the top (where it shows the path).
+  3. Copy and paste ONE of these, then press Enter:
+
+     Backend:   C:\Users\farha\ems\server
+     Frontend:  C:\Users\farha\ems\client
+     All EMS:   C:\Users\farha\ems
+
+  4. You should see the folders (src, package.json, etc.).
+
+----------------------------------------
+  NAMES TO REMEMBER
+----------------------------------------
+
+  Backend  =  "server"  folder   (not named "backend")
+  Frontend =  "client"  folder   (not named "frontend")
+
+========================================

@@ -1,0 +1,18 @@
+# Render Blueprint - deploy EMS with "New > Blueprint" and connect this repo
+# Set MONGODB_URI, JWT_SECRET, and CLIENT_URL in the Render dashboard after deploy
+services:
+  - type: web
+    name: ems
+    runtime: node
+    region: oregon
+    buildCommand: npm run install:all && npm run build
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SERVE_CLIENT
+        value: "true"
+      # Add these in Render Dashboard > Environment (never commit real values):
+      # CLIENT_URL = https://ems-xxxx.onrender.com (your app URL after first deploy)
+      # MONGODB_URI = mongodb+srv://...
+      # JWT_SECRET = long-random-secret

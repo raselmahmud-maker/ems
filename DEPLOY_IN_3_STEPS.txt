@@ -1,0 +1,90 @@
+================================================================================
+  DEPLOY YOUR EMS APP – DO THESE 3 THINGS ONLY
+================================================================================
+
+I cannot create your accounts or click for you. You only need to do these 3 steps.
+Each step is a few clicks and one copy-paste.
+
+--------------------------------------------------------------------------------
+STEP 1 – Put your project on GitHub
+--------------------------------------------------------------------------------
+
+Upload was failing because "node_modules" folders are huge. Use one of these:
+
+--------  OPTION A: Create a small folder, then upload (recommended)  --------
+
+1. In File Explorer go to: C:\Users\farha\ems
+2. Find the file: prepare-for-github-upload.ps1
+3. RIGHT-CLICK it → "Run with PowerShell".
+   (If a security warning appears, say Run / Yes.)
+4. A new folder "ems-for-github" will open. It has your project WITHOUT node_modules.
+5. Open https://github.com → Sign in → New repository → name: ems → Create repository.
+6. On the new repo page, click "uploading an existing file".
+7. Open the folder ems-for-github (inside C:\Users\farha\ems).
+8. Select EVERYTHING inside ems-for-github (Ctrl+A), then drag it all into the GitHub
+   upload area. Wait for upload to finish.
+9. Scroll down, click "Commit changes".
+
+Done. Your code is on GitHub.
+
+--------  OPTION B: Use GitHub Desktop (no web upload)  --------
+
+1. Download GitHub Desktop: https://desktop.github.com — install it.
+2. Sign in with your GitHub account.
+3. File → Add Local Repository → choose folder: C:\Users\farha\ems
+4. It will say "this directory does not appear to be a Git repository". Click
+   "create a repository" (or "create repository") and create it in that folder.
+5. In the list of files, UNCHECK any "node_modules" so they are not included.
+6. Write summary: "First commit", click "Commit to main".
+7. Click "Publish repository" (or "Push origin"). Leave "Keep this code private"
+   unchecked if you want Render to see it. Click Publish.
+
+Done. Your code is on GitHub.
+
+--------------------------------------------------------------------------------
+STEP 2 – Deploy on Render (about 3 minutes)
+--------------------------------------------------------------------------------
+
+1. Open: https://render.com
+2. Sign up (free) – you can "Sign up with GitHub".
+3. Click "New +" at the top → choose "Blueprint".
+4. Click "Connect account" to connect GitHub if asked.
+5. Choose "Connect a repository" and select your "ems" repo.
+6. Render will show one service (ems). Click "Apply".
+7. Wait for the first deploy. It may fail the first time because we add env vars in Step 3. That’s OK.
+
+--------------------------------------------------------------------------------
+STEP 3 – Add 3 environment variables on Render
+--------------------------------------------------------------------------------
+
+1. In Render, open your "ems" service (click on it).
+2. Click "Environment" in the left menu.
+3. Click "Add Environment Variable" and add these THREE (one by one):
+
+   Name:   MONGODB_URI
+   Value:  [PASTE YOUR MONGODB ATLAS CONNECTION STRING HERE]
+           You got this when you set up Atlas. It looks like:
+           mongodb+srv://user:password@cluster0.xxxxx.mongodb.net/ems?retryWrites=true&w=majority
+
+   Name:   JWT_SECRET
+   Value:  9dbdffff51efa10aa449ae3429beeb96b5aa3c7b8cae4db26486821759ef58ae
+
+   Name:   CLIENT_URL
+   Value:  [Leave empty first. After deploy, copy your app URL from Render and put it here.]
+           Example: https://ems-abc123.onrender.com (no slash at the end)
+
+4. Click "Save Changes". Render will redeploy.
+
+5. After deploy finishes, copy your service URL from the top of the page (e.g. https://ems-xxxx.onrender.com).
+6. Go back to Environment, edit CLIENT_URL, paste that URL, Save again.
+
+--------------------------------------------------------------------------------
+DONE – Open your app
+--------------------------------------------------------------------------------
+
+Open the URL (e.g. https://ems-xxxx.onrender.com) in your browser.
+Log in with:  rasel@maam.sa  /  Farhan784
+
+If the first deploy failed, after you add the 3 env vars and save, it will redeploy and work.
+
+================================================================================

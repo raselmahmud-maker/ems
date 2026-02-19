@@ -1,0 +1,10 @@
+BACKEND CODE IS IN THIS FOLDER:
+
+  server
+
+Open the "server" folder to see:
+  - src\          (all backend code)
+  - package.json
+  - .env
+
+Full path: C:\Users\farha\ems\server

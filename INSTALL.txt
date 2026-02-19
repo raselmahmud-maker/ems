@@ -1,0 +1,45 @@
+========================================
+  EMS - Employee Management System
+  How to install and run
+========================================
+
+INSTALLER FILE
+--------------
+  install.bat   (double-click this file to install all dependencies)
+
+  Or open Command Prompt in this folder and run:
+    install.bat
+
+MANUAL INSTALL (if install.bat does not work)
+---------------------------------------------
+  1. Open Command Prompt or PowerShell in this folder (C:\Users\farha\ems)
+
+  2. Run these commands one by one:
+     npm install
+     cd server
+     npm install
+     cd ..
+     cd client
+     npm install
+     cd ..
+
+AFTER INSTALL
+-------------
+  1. Create server\.env file:
+     - Copy server\.env.example to server\.env
+     - Edit server\.env and set:
+       MONGODB_URI=mongodb://localhost:27017/ems   (or your MongoDB Atlas URL)
+       JWT_SECRET=your-secret-key-here
+
+  2. Create first admin user:
+     cd server
+     node src\scripts\seedAdmin.js
+     cd ..
+     (Default login: admin@company.com / Admin@123)
+
+  3. Start the application:
+     npm run dev
+
+  4. Open in browser: http://localhost:5173
+
+========================================

@@ -1,0 +1,49 @@
+========================================
+  HOW TO OPEN THE PROJECT & RUN THE APP
+========================================
+
+A) OPEN THE CODE (to edit backend/frontend files)
+----------------------------------------------
+  Option 1 - Double-click:   OPEN_IN_EDITOR.bat
+    (Opens the project in Cursor or VS Code)
+
+  Option 2 - Manual:
+    1. Open Cursor (or VS Code)
+    2. File -> Open Folder
+    3. Go to this folder:  C:\Users\farha\ems
+    4. Click "Select Folder"
+    You will see server (backend) and client (frontend) in the left sidebar.
+
+
+B) RUN THE APP (so you can use it in the browser)
+----------------------------------------------
+  1. Double-click:   START_APP.bat
+
+  2. Wait until you see a line like:
+       "Local: http://localhost:5173"
+
+  3. Open your browser (Chrome, Edge, etc.) and go to:
+       http://localhost:5173
+
+  4. Log in with:
+       Email:    admin@company.com
+       Password: Admin@123
+
+  (To stop the app: click the black window and press Ctrl+C)
+
+
+REQUIREMENTS
+----------------------------------------------
+  - You must run install.bat first (one time).
+  - You must have created the admin user (node server\src\scripts\seedAdmin.js).
+  - MongoDB must be running (local or Atlas in server\.env).
+
+
+IF "NOT OPENING" MEANS FILES WON'T OPEN
+----------------------------------------------
+  - Don't double-click .js or .jsx files from File Explorer.
+  - Open the whole project: use OPEN_IN_EDITOR.bat or
+    File -> Open Folder -> select the "ems" folder.
+  - Then in the left sidebar click server or client, then click a file.
+
+========================================
